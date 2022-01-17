@@ -18,11 +18,14 @@ public class WebDriverUtility {
                 webDriver = new FirefoxDriver(getFireFoxOptions());
                 break;
             case CHROME:
+                WebDriverManager.chromedriver().setup();
+                webDriver = new ChromeDriver(getChromeOptions());
+                break;
             default:
                 WebDriverManager.chromedriver().setup();
                 webDriver = new ChromeDriver(getChromeOptions());
         }
-        webDriver.manage().window().maximize();
+//        webDriver.manage().window().maximize();
 
         return webDriver;
     }
