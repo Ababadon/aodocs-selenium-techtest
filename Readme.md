@@ -2,32 +2,55 @@
 
 See original request [here](#original-test-description)
 
-### Prerequisites
+## Prerequisites
 * Java JDK: 10 or higher
 * Maven: 3.3.9 or higher
+* Chrome
+* Firefox
+* Edge
+* [OPTIONAL] Allure reports (https://docs.qameta.io/allure)
 
-### Tested With
-* JDK 11
-* MVN 3.3.9
-* Chrome version : 
-* Firefox version : 
-* Edge version : 
+## Tested With
+* JDK : 11.0.11
+* Maven : 3.8.1
+* Chrome version : 97.0.4692.71
+* Firefox version : 96.0.1
+* Edge version : 97.0.1072.62
 
 All Tests are performed on Chrome, Firefox and Edge sequentially  
-*TODO*: Run them in parallel.
+**TODO**: Run them in parallel.
 
-### Run locally
-Run:  
-```mvn test```
+## Configuration
+Default values in ```TestConfig.properties```
+```properties
+google=https://www.google.com
+company=aodocs
+companySite=www.aodocs.com
+demo=Request a demo
+firstName=florian
 
-Results reports:  
+expectedInputError=Please complete this required field.
+expectedEmailError=Email must be formatted correctly.
+expectedSelectError=Please select an option from the dropdown menu.
+expectedGlobalError=Please complete all required fields.
+```
+
+## Run locally
+ 
+```$ mvn test```
+
+### Allure Results reports:  
+```$ allure serve target/allure-results```
+
+#### Examples
+![Report 1](resources/allure-report-1.png)
+![Report 2](resources/allure-report-2.png)
+### Continuous integration
 TBD
 
 ### Run with docker
-TBD
+**TODO**
 
-### Continuous integration
-TBD
 
 # Original Test Description
 

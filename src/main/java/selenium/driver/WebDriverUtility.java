@@ -13,8 +13,18 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+/**
+ *  Web driver class useful to create drivers of any registered browsers.
+ *  Based on WebDriverManager to get automatically the corresponding web driver.
+ */
 public class WebDriverUtility {
 
+    /**
+     *  Create a webdriver based on the required browser
+     *
+     * @param browser One of the Browser provided
+     * @return the webdriver to use for tests
+     */
     public static WebDriver getWebDriver(Browser browser) {
         WebDriver webDriver;
         switch (browser) {
@@ -34,20 +44,36 @@ public class WebDriverUtility {
                 WebDriverManager.chromiumdriver().setup();
                 webDriver = new ChromeDriver(getChromeOptions());
         }
-//        webDriver.manage().window().maximize();
+        webDriver.manage().window().maximize();
 
         return webDriver;
     }
 
+    /**
+     * Close the provided webdriver
+     *
+     * @param webDriver the webdriver to close
+     */
     public static void closeWebDriver(WebDriver webDriver) {
         if (webDriver != null)
             webDriver.quit();
     }
 
+    /**
+     *  Get all registered browsers. Useful to start tests on all browsers
+     *
+     * @return Stream webbrosers browsers
+     */
     public static Stream<WebDriver> getAll() {
         return Arrays.stream(Browser.values()).map(WebDriverUtility::getWebDriver);
     }
 
+    /**
+     * Self-explanatory :)
+     * Important : Change language to English
+     *
+     * @return options
+     */
     private static ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
         // To start chrome in english
@@ -57,6 +83,12 @@ public class WebDriverUtility {
         return options;
     }
 
+    /**
+     * Self-explanatory :)
+     * Important : Change language to English
+     *
+     * @return options
+     */
     private static FirefoxOptions getFireFoxOptions() {
         FirefoxOptions options = new FirefoxOptions();
         FirefoxProfile profile = new FirefoxProfile();
@@ -65,6 +97,12 @@ public class WebDriverUtility {
         return options;
     }
 
+    /**
+     * Self-explanatory :)
+     * Important : Change language to English
+     *
+     * @return options
+     */
     private static EdgeOptions getEdgeOptions() {
         EdgeOptions options = new EdgeOptions();
         options.addArguments("lang=en-GB");
