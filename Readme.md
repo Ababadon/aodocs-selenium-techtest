@@ -1,5 +1,36 @@
 # AODocs Selenium technical test
 
+See original request [here](#original-test-description)
+
+### Prerequisites
+* Java JDK: 10 or higher
+* Maven: 3.3.9 or higher
+
+### Tested With
+* JDK 11
+* MVN 3.3.9
+* Chrome version : 
+* Firefox version : 
+* Edge version : 
+
+All Tests are performed on Chrome, Firefox and Edge sequentially  
+*TODO*: Run them in parallel.  
+
+### Run locally
+Run:  
+```mvn test```
+
+Results reports:  
+TBD
+
+### Run with docker
+TBD
+
+### Continuous integration
+TBD
+
+# Original Test Description
+
 This project is about assessing QA automation abilities.
 
 ## Getting Started
