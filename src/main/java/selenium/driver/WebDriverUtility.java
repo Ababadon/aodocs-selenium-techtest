@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.apache.commons.lang3.SystemUtils;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
@@ -61,11 +62,19 @@ public class WebDriverUtility {
 
     /**
      *  Get all registered browsers. Useful to start tests on all browsers
+     *  For Windows : Chrome, Firefox, Edge
+     *  For Linux : Chrome, Firefox
+     *  TODO For Mac : Chrome, Firefox, Safari
      *
-     * @return Stream webbrosers browsers
+     * @return Stream web browsers
      */
     public static Stream<WebDriver> getAll() {
-        return Arrays.stream(Browser.values()).map(WebDriverUtility::getWebDriver);
+        if(SystemUtils.IS_OS_WINDOWS)
+            return Arrays.stream(Browser.values()).map(WebDriverUtility::getWebDriver);
+        else {
+            Browser[] browsers = {Browser.CHROME, Browser.FIREFOX};
+            return Arrays.stream(browsers).map(WebDriverUtility::getWebDriver);
+        }
     }
 
     /**
