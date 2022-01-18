@@ -1,5 +1,5 @@
-# AODocs Selenium technical test
-
+AODocs Selenium technical test
+=
 See original request [here](#original-test-description)
 
 ## Prerequisites
@@ -13,9 +13,10 @@ See original request [here](#original-test-description)
 ## Tested With
 * JDK : 11.0.11
 * Maven : 3.8.1
-* Chrome version : 97.0.4692.71
-* Firefox version : 96.0.1
-* Edge version : 97.0.1072.62
+* Windows 11 with :  
+o Chrome version : 97.0.4692.71  
+o Firefox version : 96.0.1  
+o Edge version : 97.0.1072.62
 
 All Tests are performed on Chrome, Firefox and Edge sequentially  
 **TODO**: Run them in parallel.

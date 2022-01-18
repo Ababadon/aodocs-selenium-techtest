@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import selenium.driver.WebDriverUtility;
-import io.qameta.allure.Description;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -38,8 +37,6 @@ public class AodocsTest {
     @ParameterizedTest
     @MethodSource("selenium.driver.WebDriverUtility#getAll")
     public void requestADemoTest(final WebDriver webDriver ) {
-
-//        System.out.println( "Test with " + driver.getClass().getSimpleName() );
         driver = webDriver;
         wait = new WebDriverWait(driver, timeout);
 
@@ -49,12 +46,12 @@ public class AodocsTest {
         // Approve cookies in Google
         waitAndFindElement(By.xpath("//div[contains(text(), 'I agree')]")).click();
 
-        // Search the aodocs
+        // Search aodocs
         WebElement search = waitAndFindElement(By.name("q"));
         search.sendKeys(cfg.company());
         search.submit();
 
-        // Open website corresponding to aodocs
+        // Open website corresponding to www.aodocs.com
         waitAndFindElement(By.xpath("//cite[contains(text(), '" + cfg.companySite() + "')]")).click();
 
         // Request a demo
@@ -66,7 +63,7 @@ public class AodocsTest {
         // Fill the form with a random string in the email (random = [a-zA-Z0-9])
         waitAndFindElement(By.name("email")).sendKeys(RandomStringUtils.randomAlphanumeric(25));
 
-        // Choose a random value in Company size
+        // Choose a random value in Company size available in the options
         Select select = new Select(waitAndFindElement(By.name("company_size__c")));
         select.selectByIndex(ThreadLocalRandom.current().nextInt(1, 7));
 
