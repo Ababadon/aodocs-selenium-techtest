@@ -45,6 +45,8 @@ public class AodocsTest {
 
         // Approve cookies in Google
         waitAndFindElement(By.xpath("//div[contains(text(), 'I agree')]")).click();
+        // / ! \ On Linux, even with all English options, the displayed language is French, so use this "ugly" id...
+        //waitAndFindElement(By.id("L2AGLb")).click();
 
         // Search aodocs
         WebElement search = waitAndFindElement(By.name("q"));
