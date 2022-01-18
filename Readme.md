@@ -1,3 +1,5 @@
+[![Java CI with Maven](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml/badge.svg)](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml) 
+
 AODocs Selenium technical test
 =
 See original request [here](#original-test-description)
@@ -46,10 +48,31 @@ expectedGlobalError=Please complete all required fields.
 #### Examples
 ![Report 1](resources/allure-report-1.png)
 ![Report 2](resources/allure-report-2.png)
-### Continuous integration
-TBD
 
-### Run with docker
+## Continuous integration
+### For now use GitHub Actions :
+```yaml
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: maven
+    - name: Build with Maven
+      run: mvn -B test --file pom.xml
+```
+
+### Results :  
+[![Java CI with Maven](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml/badge.svg)](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml) 
+
+## Run with docker
 **TODO**
 
 
