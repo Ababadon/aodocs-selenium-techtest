@@ -1,4 +1,4 @@
-[![Java CI with Maven](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml/badge.svg)](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml) 
+[![AODOCS Selenium tests](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml/badge.svg)](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml)
 
 AODocs Selenium technical test
 =
@@ -52,6 +52,16 @@ expectedGlobalError=Please complete all required fields.
 ## Continuous integration
 ### For now use GitHub Actions :
 ```yaml
+name: AODOCS Selenium tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron:  '0 1 * * *'
+
 jobs:
   build:
 
@@ -69,8 +79,12 @@ jobs:
       run: mvn -B test --file pom.xml
 ```
 
+Tests are triggered on any push or pull request  
+AND  
+**Every day at 1AM.**
+
 ### Results :  
-[![Java CI with Maven](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml/badge.svg)](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml) 
+[![AODOCS Selenium tests](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml/badge.svg)](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml)
 
 ## Run with docker
 **TODO**
