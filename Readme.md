@@ -1,7 +1,10 @@
-[![AODOCS Selenium tests](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml/badge.svg)](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml)
-
 AODocs Selenium technical test
 =
+
+[![AODOCS Selenium tests](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml/badge.svg)](https://github.com/Ababadon/aodocs-selenium-techtest/actions/workflows/maven.yml)
+[![Built with Maven](http://maven.apache.org/images/logos/maven-feather.png)](http://maven.apache.org)
+
+
 See original request [here](#original-test-description)
 
 ## Prerequisites
@@ -24,7 +27,7 @@ All Tests are performed on Chrome, Firefox and Edge sequentially
 **TODO**: Run them in parallel.
 
 ## Configuration
-Default values in ```TestConfig.properties```
+Default values in ```TestConfig.properties``` based on http://owner.aeonbits.org/docs/usage/
 ```properties
 google=https://www.google.com
 company=aodocs
