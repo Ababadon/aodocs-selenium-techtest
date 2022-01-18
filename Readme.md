@@ -14,7 +14,7 @@ See original request [here](#original-test-description)
 * Edge version : 
 
 All Tests are performed on Chrome, Firefox and Edge sequentially  
-*TODO*: Run them in parallel.  
+*TODO*: Run them in parallel.
 
 ### Run locally
 Run:  

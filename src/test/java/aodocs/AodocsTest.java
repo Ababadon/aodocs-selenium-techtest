@@ -2,19 +2,18 @@ package aodocs;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import selenium.driver.Browser;
 import selenium.driver.WebDriverUtility;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class AodocsChromeTest {
+public class AodocsTest {
     private static WebDriver driver = null;
     private WebDriverWait wait = null;
     public static final long timeout = 5L;
@@ -25,25 +24,29 @@ public class AodocsChromeTest {
     public static final String FIRST_NAME = "florian";
     public static final String DEMO = "Request a demo";
 
-
     public static final String EXPECTED_INPUT_ERROR = "Please complete this required field.";
     public static final String EXPECTED_EMAIL_ERROR = "Email must be formatted correctly.";
     public static final String EXPECTED_SELECT_ERROR = "Please select an option from the dropdown menu.";
     public static final String EXPECTED_GLOBAL_ERROR = "Please complete all required fields.";
 
-    @BeforeEach()
-    public void setUp() {
-        driver = WebDriverUtility.getWebDriver(Browser.CHROME);
-        wait = new WebDriverWait(driver, timeout);
-    }
+//    @BeforeEach()
+//    public void setUp() {
+//        driver = WebDriverUtility.getWebDriver(Browser.CHROME);
+//        wait = new WebDriverWait(driver, timeout);
+//    }
 
     @AfterEach()
     public void tearDown() {
         WebDriverUtility.closeWebDriver(driver);
     }
 
-    @Test
-    public void requestADemoOnChrome() {
+    @ParameterizedTest
+    @MethodSource( "selenium.driver.WebDriverUtility#getAll" )
+    public void requestADemoTest(final WebDriver webDriver ) {
+//        System.out.println( "Test with " + driver.getClass().getSimpleName() );
+        driver = webDriver;
+        wait = new WebDriverWait(driver, timeout);
+
         driver.get(GOOGLE);
         waitAndFindElement(By.xpath("//div[contains(text(), 'I agree')]")).click();
         WebElement search = driver.findElement(By.name("q"));
@@ -79,10 +82,6 @@ public class AodocsChromeTest {
         assertEquals(EXPECTED_INPUT_ERROR, actualMessageError, "Validation on message failed");
         assertEquals(EXPECTED_SELECT_ERROR, actualHearAboutUsError, "Validation on Hear about us failed");
         assertEquals(EXPECTED_GLOBAL_ERROR, actualGlobalError, "Validation on Global error failed");
-    }
-
-    private WebElement browserTest(By by) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
     private WebElement waitAndFindElement(By by) {

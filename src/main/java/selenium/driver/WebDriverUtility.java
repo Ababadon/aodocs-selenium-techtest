@@ -10,6 +10,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class WebDriverUtility {
 
     public static WebDriver getWebDriver(Browser browser) {
@@ -41,6 +44,9 @@ public class WebDriverUtility {
             webDriver.quit();
     }
 
+    public static Stream<WebDriver> getAll() {
+        return Arrays.stream(Browser.values()).map(WebDriverUtility::getWebDriver);
+    }
 
     private static ChromeOptions getChromeOptions() {
         ChromeOptions options = new ChromeOptions();
