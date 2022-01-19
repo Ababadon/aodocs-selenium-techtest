@@ -16,14 +16,15 @@ See original request [here](#original-test-description)
 * [OPTIONAL] Allure reports (https://docs.qameta.io/allure)
 
 ## Tested With
-* JDK : 11.0.11
-* Maven : 3.8.1
-* Windows 11 with :  
-o Chrome version : 97.0.4692.71  
-o Firefox version : 96.0.1  
-o Edge version : 97.0.1072.62
-
-All Tests are performed on Chrome, Firefox and Edge sequentially  
+| Windows 11                       | Ubuntu 20.04                  |
+| -----------                      | -----------                   |
+| JDK : 11.0.11                    | JDK : 11.0.13                 |
+| Maven : 3.8.1                    | Maven : 3.8.1                 |
+| Chrome version : 97.0.4692.71    | Chrome version : 97.0.4692.71 |
+| Firefox version : 96.0.1         | Firefox version : 96.0        |
+| Edge version : 97.0.1072.62      |                               |
+    
+All Tests are performed on these browsers sequentially  
 **TODO**: Run them in parallel.
 
 ## Configuration
