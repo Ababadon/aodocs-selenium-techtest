@@ -12,8 +12,8 @@ See original request [here](#original-test-description)
 * Maven: 3.3.9 or higher
 * Chrome
 * Firefox
-* Edge
-* [OPTIONAL] Allure reports (https://docs.qameta.io/allure)
+* [Windows only] Edge
+* [Optional] Allure reports (https://docs.qameta.io/allure)
 
 ## Tested With
 | Windows 11                       | Ubuntu 20.04                  |
