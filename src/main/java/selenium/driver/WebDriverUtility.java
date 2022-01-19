@@ -42,8 +42,7 @@ public class WebDriverUtility {
                 webDriver = new EdgeDriver(getEdgeOptions());
                 break;
             default:
-                WebDriverManager.chromiumdriver().setup();
-                webDriver = new ChromeDriver(getChromeOptions());
+                throw new RuntimeException("Unsupported Web Driver: " + browser);
         }
         webDriver.manage().window().maximize();
 
@@ -89,6 +88,8 @@ public class WebDriverUtility {
         options.addArguments("lang=en-GB");
         // To start chrome without security warning
         options.addArguments("disable-infobars");
+        // TODO Use Chrome in headless mode + disable some options for CI tools :
+        // options.addArguments("--no-sandbox", "--disable-setuid-sandbox", "--headless", "--disable-gpu", "--disable-setuid-sandbox", "--disable-dev-shm-usage");
         return options;
     }
 

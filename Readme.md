@@ -27,7 +27,7 @@ All Tests are performed on Chrome, Firefox and Edge sequentially
 **TODO**: Run them in parallel.
 
 ## Configuration
-Default values in ```TestConfig.properties``` based on http://owner.aeonbits.org/docs/usage/
+Default values in ```TestConfig.properties``` (based on http://owner.aeonbits.org/docs/usage/)
 ```properties
 google=https://www.google.com
 company=aodocs

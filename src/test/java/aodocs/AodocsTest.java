@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AodocsTest {
     private static WebDriver driver = null;
-    private WebDriverWait wait = null;
+    private static WebDriverWait wait = null;
     public static final long timeout = 5L;
 
     private static TestConfig cfg = null;
@@ -62,7 +62,7 @@ public class AodocsTest {
         // Fill the form with my first name
         waitAndFindElement(By.name("firstname")).sendKeys(cfg.firstName());
 
-        // Fill the form with a random string in the email (random = [a-zA-Z0-9])
+        // Fill the form with a random string in the email (random means [a-zA-Z0-9])
         waitAndFindElement(By.name("email")).sendKeys(RandomStringUtils.randomAlphanumeric(25));
 
         // Choose a random value in Company size available in the options
