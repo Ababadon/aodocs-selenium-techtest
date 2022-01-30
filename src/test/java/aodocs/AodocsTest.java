@@ -1,6 +1,7 @@
 package aodocs;
 
 import config.TestConfig;
+import io.qameta.allure.Description;
 import org.aeonbits.owner.ConfigFactory;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.AfterEach;
@@ -34,6 +35,7 @@ public class AodocsTest {
         WebDriverUtility.closeWebDriver(driver);
     }
 
+    @Description("Request demo test")
     @ParameterizedTest
     @MethodSource("selenium.driver.WebDriverUtility#getAll")
     public void requestADemoTest(final WebDriver webDriver ) {
